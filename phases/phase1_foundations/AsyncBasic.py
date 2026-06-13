@@ -1,12 +1,18 @@
 import asyncio
 
 async def fetch_data():
-    print("fetching..")
+    print("fetching data..")
+    await asyncio.sleep(2)
+    print("Data received")
+
+async  def fetch_documents():
+    print("analysing documents..")
     await asyncio.sleep(1)
-    return "Data received"
+    print("analysed documents")
 
 async def main():
-    result= await fetch_data()
-    print(result)
+    print("started..")
+    await asyncio.gather(fetch_data(),fetch_documents())
+    print("...finished")
 
 asyncio.run(main())
