@@ -1,6 +1,6 @@
 import chromadb
 client= chromadb.Client()
-collection = client.create_collection("quantum_docs")
+collection = client.create_collection(name="quantum_docs")
 collection.add(
     documents=[
         "Quantum computing uses qubits.",
@@ -11,7 +11,6 @@ collection.add(
 )
 results = collection.query(
     query_texts=["What is entanglement?"],
-    n_results=2
+    n_results=1
 )
-
 print(results)
